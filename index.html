@@ -13,7 +13,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--escuro);line-height:1.5}
   .hero{background:linear-gradient(135deg,#FF6600,#CC2200);color:#fff;padding:48px 20px 40px;text-align:center}
-  .hero .logo{font-size:40px}
+  .hero .marca{width:210px;max-width:72%;height:auto;margin:0 auto 6px;display:block;filter:drop-shadow(0 3px 8px rgba(0,0,0,.25))}
   .hero h1{font-size:28px;font-weight:800;margin:12px 0 8px;letter-spacing:.3px}
   .hero p{font-size:16px;opacity:.95;max-width:520px;margin:0 auto}
   .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;margin-top:16px}
@@ -49,7 +49,7 @@
 </head>
 <body>
   <div class="hero">
-    <div class="logo">🔥</div>
+    <img src="logo.png" alt="Churrasqueadas" class="marca">
     <h1>Seja um Parceiro Churrasqueadas</h1>
     <p>Cadastre seu negócio no app antes do lançamento e apareça para milhares de amantes de churrasco da sua região.</p>
     <span class="badge">✅ Grátis · sem mensalidade · você paga só quando vender</span>
@@ -59,7 +59,8 @@
     <div class="card">
       <ul class="beneficios">
         <li><span class="ck">✓</span><span><b>Vitrine gratuita</b> no app para açougues, distribuidoras, mercearias e churrasqueiros.</span></li>
-        <li><span class="ck">✓</span><span><b>Sem mensalidade.</b> Comissão só sobre pedidos entregues.</span></li>
+        <li><span class="ck">✓</span><span><b>Sem mensalidade e sem taxa de cadastro.</b> Você só paga quando vende.</span></li>
+        <li><span class="ck">✓</span><span><b>Comissão de apenas 8%</b> sobre o valor bruto de cada venda gerada pelo app — nada além disso.</span></li>
         <li><span class="ck">✓</span><span><b>Prioridade de lançamento</b> — os primeiros parceiros aparecem primeiro.</span></li>
         <li><span class="ck">✓</span><span>Seu nome só é revelado ao cliente após a confirmação do pedido.</span></li>
       </ul>
@@ -97,8 +98,21 @@
           </div>
         </div>
 
-        <label for="email">Email (opcional)</label>
-        <input id="email" type="email" maxlength="120" placeholder="seu@email.com">
+        <label for="raio">Raio de atuação (até onde você atende/entrega) *</label>
+        <select id="raio" required>
+          <option value="">Selecione...</option>
+          <option value="3">Até 3 km (bairro)</option>
+          <option value="5">Até 5 km</option>
+          <option value="10">Até 10 km</option>
+          <option value="15">Até 15 km</option>
+          <option value="20">Até 20 km</option>
+          <option value="30">Até 30 km (cidade toda)</option>
+          <option value="50">Até 50 km (região)</option>
+        </select>
+        <p style="font-size:12px;color:var(--cinza);margin-top:6px">📍 O app usa esse raio para oferecer seu negócio aos clientes que estiverem dentro dessa distância.</p>
+
+        <label for="email">Email *</label>
+        <input id="email" type="email" required maxlength="120" placeholder="seu@email.com">
 
         <label for="observacoes">Algo a mais? (opcional)</label>
         <textarea id="observacoes" maxlength="500" placeholder="Ex: entrego em toda a cidade, atendo eventos..."></textarea>
@@ -145,6 +159,7 @@
       email: document.getElementById('email').value.trim() || undefined,
       observacoes: document.getElementById('observacoes').value.trim() || undefined,
       revendaProdutos: document.getElementById('revendaProdutos').checked,
+      raioAtuacaoKm: parseInt(document.getElementById('raio').value, 10) || undefined,
     };
 
     try {
