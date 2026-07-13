@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seja um Parceiro Churrasqueadas</title>
+<meta name="description" content="Cadastre seu açougue, distribuidora, mercearia ou serviço de churrasqueiro no app Churrasqueadas — grátis e sem mensalidade.">
+<style>
+  :root{
+    --laranja:#FF6600; --laranja2:#FF3300; --escuro:#1A1A1A; --cinza:#666;
+    --bg:#F7F5F3; --card:#fff; --ok:#00AA44; --borda:#E3DED9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--escuro);line-height:1.5}
+  .hero{background:linear-gradient(135deg,#FF6600,#CC2200);color:#fff;padding:48px 20px 40px;text-align:center}
+  .hero .logo{font-size:40px}
+  .hero h1{font-size:28px;font-weight:800;margin:12px 0 8px;letter-spacing:.3px}
+  .hero p{font-size:16px;opacity:.95;max-width:520px;margin:0 auto}
+  .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;margin-top:16px}
+  .wrap{max-width:560px;margin:-24px auto 40px;padding:0 16px}
+  .card{background:var(--card);border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.08);padding:24px;border:1px solid var(--borda)}
+  .beneficios{list-style:none;margin:0 0 8px}
+  .beneficios li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:14.5px}
+  .beneficios .ck{color:var(--ok);font-weight:800}
+  h2{font-size:18px;margin:6px 0 16px}
+  label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px;color:#444}
+  input,select,textarea{width:100%;padding:13px 14px;border:1px solid var(--borda);border-radius:12px;font-size:15px;font-family:inherit;background:#fff;color:var(--escuro)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--laranja);box-shadow:0 0 0 3px rgba(255,102,0,.15)}
+  textarea{resize:vertical;min-height:64px}
+  .row{display:flex;gap:12px}
+  .row>div{flex:1}
+  button{width:100%;margin-top:22px;padding:16px;border:none;border-radius:14px;background:linear-gradient(135deg,#FF6600,#FF3300);color:#fff;font-size:17px;font-weight:800;cursor:pointer;transition:transform .1s}
+  button:active{transform:scale(.98)}
+  button:disabled{opacity:.6;cursor:default}
+  .check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;padding:12px;border:1px dashed var(--laranja);border-radius:12px;font-size:13.5px;cursor:pointer}
+  .check input{width:20px;height:20px;flex:none;accent-color:var(--laranja);margin-top:1px}
+  .obs{font-size:12px;color:var(--cinza);text-align:center;margin-top:14px}
+  .sucesso{display:none;text-align:center;padding:20px 0}
+  .sucesso .big{font-size:56px}
+  .sucesso h2{color:var(--ok);margin:12px 0 6px}
+  .erro{display:none;background:#FDECEA;color:#B71C1C;border-radius:10px;padding:12px;font-size:14px;margin-top:14px;text-align:center}
+  .rodape{text-align:center;font-size:12px;color:var(--cinza);padding:0 20px 30px}
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#121212;--card:#1E1E1E;--escuro:#F2F2F2;--cinza:#9a9a9a;--borda:#333}
+    input,select,textarea{background:#2A2A2A;color:#F2F2F2}
+    label{color:#cfcfcf}
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo">🔥</div>
+    <h1>Seja um Parceiro Churrasqueadas</h1>
+    <p>Cadastre seu negócio no app antes do lançamento e apareça para milhares de amantes de churrasco da sua região.</p>
+    <span class="badge">✅ Grátis · sem mensalidade · você paga só quando vender</span>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <ul class="beneficios">
+        <li><span class="ck">✓</span><span><b>Vitrine gratuita</b> no app para açougues, distribuidoras, mercearias e churrasqueiros.</span></li>
+        <li><span class="ck">✓</span><span><b>Sem mensalidade.</b> Comissão só sobre pedidos entregues.</span></li>
+        <li><span class="ck">✓</span><span><b>Prioridade de lançamento</b> — os primeiros parceiros aparecem primeiro.</span></li>
+        <li><span class="ck">✓</span><span>Seu nome só é revelado ao cliente após a confirmação do pedido.</span></li>
+      </ul>
+
+      <form id="form">
+        <h2>Cadastre seu negócio 👇</h2>
+
+        <label for="tipo">Tipo de negócio *</label>
+        <select id="tipo" required>
+          <option value="">Selecione...</option>
+          <option value="acougue">🥩 Açougue</option>
+          <option value="distribuidora">🍺 Distribuidora de bebidas</option>
+          <option value="mercearia">🛒 Mercearia / mercado</option>
+          <option value="churrasqueiro">👨‍🍳 Churrasqueiro (serviço)</option>
+          <option value="outro">➕ Outro</option>
+        </select>
+
+        <label for="nomeNegocio">Nome do negócio *</label>
+        <input id="nomeNegocio" required maxlength="120" placeholder="Ex: Açougue do Zé">
+
+        <label for="responsavel">Seu nome (responsável) *</label>
+        <input id="responsavel" required maxlength="80" placeholder="Ex: José da Silva">
+
+        <label for="whatsapp">WhatsApp (com DDD) *</label>
+        <input id="whatsapp" required maxlength="20" inputmode="tel" placeholder="Ex: 35 98432-1728">
+
+        <div class="row">
+          <div>
+            <label for="cidade">Cidade *</label>
+            <input id="cidade" required maxlength="80" placeholder="Ex: Poços de Caldas">
+          </div>
+          <div style="max-width:110px">
+            <label for="estado">Estado</label>
+            <input id="estado" maxlength="2" placeholder="MG" style="text-transform:uppercase">
+          </div>
+        </div>
+
+        <label for="email">Email (opcional)</label>
+        <input id="email" type="email" maxlength="120" placeholder="seu@email.com">
+
+        <label for="observacoes">Algo a mais? (opcional)</label>
+        <textarea id="observacoes" maxlength="500" placeholder="Ex: entrego em toda a cidade, atendo eventos..."></textarea>
+
+        <label class="check">
+          <input type="checkbox" id="revendaProdutos">
+          <span>🛍️ <b>Também quero revender os produtos oficiais Churrasqueadas</b> (temperos, facas, kits) no meu negócio.</span>
+        </label>
+
+        <div class="erro" id="erro"></div>
+        <button type="submit" id="btn">Quero ser parceiro 🔥</button>
+        <p class="obs">Ao enviar, nossa equipe entra em contato pelo WhatsApp. Seus dados ficam protegidos.</p>
+      </form>
+
+      <div class="sucesso" id="sucesso">
+        <div class="big">✅</div>
+        <h2>Cadastro recebido!</h2>
+        <p>Obrigado! Em breve nossa equipe entra em contato pelo WhatsApp para ativar seu perfil no app. 🔥🍖</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rodape">Churrasqueadas · o app do churrasco brasileiro</div>
+
+<script>
+  const API = 'https://churrasqueadas-api.onrender.com/parceiros';
+  const form = document.getElementById('form');
+  const btn = document.getElementById('btn');
+  const erro = document.getElementById('erro');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    erro.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Enviando... (pode levar alguns segundos)';
+
+    const dados = {
+      tipo: document.getElementById('tipo').value,
+      nomeNegocio: document.getElementById('nomeNegocio').value.trim(),
+      responsavel: document.getElementById('responsavel').value.trim(),
+      whatsapp: document.getElementById('whatsapp').value.trim(),
+      cidade: document.getElementById('cidade').value.trim(),
+      estado: document.getElementById('estado').value.trim().toUpperCase() || undefined,
+      email: document.getElementById('email').value.trim() || undefined,
+      observacoes: document.getElementById('observacoes').value.trim() || undefined,
+      revendaProdutos: document.getElementById('revendaProdutos').checked,
+    };
+
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados),
+      });
+      if (!res.ok) throw new Error('falha');
+      form.style.display = 'none';
+      document.getElementById('sucesso').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (_) {
+      erro.textContent = 'Não foi possível enviar agora. Tente de novo em instantes (o servidor pode estar acordando).';
+      erro.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Quero ser parceiro 🔥';
+    }
+  });
+</script>
+</body>
+</html>
